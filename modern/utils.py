@@ -1,14 +1,15 @@
 import logging
 import pkgutil
+import importlib
+from types import ModuleType
 
 logger = logging.getLogger(__name__)
 
 
-def load_module_recursively(module) -> None:
-    for _, name, ispkg in pkgutil.iter_modules(module.__path__):
-        module_name = '%s.%s' % (module.__name__, name)
-        logger.debug(f'Loading module: {module_name}')
-        _module = __import__(module_name, fromlist=[''])
-
-        if ispkg:
-            load_module_recursively(_module)
+def import_submodules(module: ModuleType):
+    for _, name, is_pkg in pkgutil.iter_modules(module.__path__):
+        full_name = f'{module.__name__}.{name}'
+        logger.debug(f'Import module: {full_name}')
+        submodule = importlib.import_module(full_name)
+        if is_pkg:
+            import_submodules(submodule)
