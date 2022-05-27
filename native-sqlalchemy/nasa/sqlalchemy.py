@@ -14,9 +14,9 @@ class SQLAlchemy:
 
     def init_app(self, app: Flask):
         url = app.config['SQLALCHEMY_DATABASE_URI']
-        app.logger.info(f'Create engine {url}')
-
         echo = app.config.get('SQLALCHEMY_ECHO', False)
+
+        app.logger.info(f'Create engine {url}')
         app.extensions['sqlalchemy'] = create_engine(url, echo=echo)
 
         app.teardown_appcontext(self.teardown)
