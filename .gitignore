@@ -8,8 +8,13 @@ venv
 # Flask
 .env
 
+# JavaScript
+node_modules
+dist
+
 # IDE
 .vscode
+.idea
 
 # Mac
 .DS_Store
