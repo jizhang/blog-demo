@@ -2,9 +2,10 @@
 __pycache__
 .mypy_cache
 .pytest_cache
-.virtualenv
 venv
 *.egg-info
+
+# Flask
 .env
 
 # IDE
