@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// import 'bootstrap'
+import 'bootstrap/js/dist/modal'
 </script>
 
 <template>
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
+    Launch demo modal 1
   </button>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
