@@ -4,6 +4,7 @@ import { Modal } from 'bootstrap'
 
 const props = defineProps<{
   modelValue: boolean
+  title: string
 }>()
 
 const emit = defineEmits<{
@@ -36,15 +37,14 @@ function close() {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">{{ title }}</h5>
           <button type="button" class="btn-close" aria-label="Close" @click="close"></button>
         </div>
         <div class="modal-body">
-          Woo-hoo, you're reading this text in a modal!
+          <slot />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="close">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <slot name="footer" />
         </div>
       </div>
     </div>
