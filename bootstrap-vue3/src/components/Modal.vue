@@ -33,7 +33,7 @@ function close() {
 </script>
 
 <template>
-  <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modalRef">
+  <div class="modal fade" tabindex="-1" aria-hidden="true" ref="modalRef">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
