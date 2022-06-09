@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { Toast } from 'bootstrap'
 import Modal from '../components/Modal.vue'
+import MyToast from '../components/Toast'
 
 const toastRef = ref<HTMLElement | null>(null)
 let toast: Toast
@@ -25,6 +26,8 @@ function saveChanges() {
   closeModal()
   toast.show()
 }
+
+MyToast('hello world1')
 </script>
 
 <template>
