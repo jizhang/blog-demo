@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Modal from '../components/Modal.vue'
-import MyToast from '../components/Toast'
+import Toast from '../components/Toast'
 
 const dialogVisible = ref(false)
 
@@ -15,7 +15,7 @@ function closeModal() {
 
 function saveChanges() {
   closeModal()
-  MyToast('Changed saved.')
+  Toast('Changed saved.')
 }
 </script>
 

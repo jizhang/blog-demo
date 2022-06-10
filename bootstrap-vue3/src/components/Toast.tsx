@@ -3,7 +3,9 @@ import { Toast } from 'bootstrap'
 
 function makeToast(props: { message: string }) {
   const saveRef: VNodeRef = (el) => {
-    new Toast(el as HTMLElement).show()
+    if (el instanceof HTMLElement) {
+      new Toast(el).show()
+    }
   }
 
   return (
@@ -21,7 +23,11 @@ function makeToast(props: { message: string }) {
 export default (message: string) => {
   const div = document.createElement('div')
   document.body.appendChild(div)
-  createApp(makeToast, { message }).mount(div)
-}
+  const vm = createApp(makeToast, { message })
+  vm.mount(div)
 
-// TODO destroy
+  div.addEventListener('hidden.bs.toast', () => {
+    vm.unmount()
+    div.remove()
+  })
+}
