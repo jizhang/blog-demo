@@ -1,0 +1,4 @@
+SECRET_KEY = 'secret key'
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:///../oasis.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
