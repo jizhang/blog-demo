@@ -4,7 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config.from_object('timetable.default_settings')
+app.config.from_object('oasis.default_settings')
 
 db: Any = SQLAlchemy(app)
 
@@ -14,5 +14,5 @@ class AppError(Exception):
 
 
 # pylint: disable=cyclic-import,wrong-import-position
-import oasis.views.api
-import oasis.commands.gen
+import oasis.views
+import oasis.commands
