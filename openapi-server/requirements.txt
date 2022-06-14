@@ -1,0 +1,8 @@
+Flask==2.1.2
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.36
+python-dotenv==0.20.0
+apispec[marshmallow]==5.2.2
+apispec-webframeworks==0.5.2
+
+-e .
