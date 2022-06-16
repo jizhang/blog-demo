@@ -42,7 +42,7 @@ paths:
                       $ref: '#/components/schemas/Post'
   /api/post/save:
     post:
-      summary: Save post
+      summary: Save post.
       tags:
       - post
       x-swagger-router-controller: oasis.views
@@ -63,24 +63,48 @@ paths:
                 properties:
                   id:
                     type: integer
+  /api/post/delete:
+    post:
+      summary: Delete post.
+      tags:
+      - post
+      x-swagger-router-controller: oasis.views
+      operationId: delete_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ok
 openapi: 3.0.2
 components:
   schemas:
     Post:
       type: object
       properties:
+        id:
+          type: integer
+        title:
+          type: string
+          minLength: 1
+        content:
+          type: string
+          minLength: 1
         updated_at:
           type: string
           format: date-time
           readOnly: true
-        title:
-          type: string
-          minLength: 1
-        id:
-          type: integer
-        content:
-          type: string
-          minLength: 1
       required:
       - content
       - title

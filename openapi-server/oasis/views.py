@@ -54,11 +54,11 @@ def get_post_list() -> Response:
 
 
 @app.post('/api/post/save')
-def save_post() -> dict:
+def save_post() -> Response:
     """
     ---
     post:
-      summary: Save post
+      summary: Save post.
       tags: [post]
       x-swagger-router-controller: oasis.views
       operationId: save_post
@@ -91,5 +91,40 @@ def save_post() -> dict:
 
 
 @app.post('/api/post/delete')
-def delete_post() -> dict:
-    return {}
+def delete_post() -> Response:
+    """
+    ---
+    post:
+      summary: Delete post.
+      tags: [post]
+      x-swagger-router-controller: oasis.views
+      operationId: delete_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ok
+    """
+    post_id = request.form.get('id')
+    if not post_id:
+        raise AppError('Post ID cannot be empty.')
+
+    post = db.session.query(Post).get(post_id)
+    if post is None:
+        raise AppError('Post ID not found.')
+
+    db.session.delete(post)
+    db.session.commit()
+    return jsonify('ok')
