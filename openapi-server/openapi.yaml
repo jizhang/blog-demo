@@ -5,6 +5,8 @@ info:
   description: Demo project for OpenAPI workflow.
   title: Oasis
   version: 0.1.0
+servers:
+- url: http://127.0.0.1:5000
 paths:
   /api/post/list:
     get:
@@ -71,14 +73,14 @@ components:
           type: string
           format: date-time
           readOnly: true
-        content:
-          type: string
-          minLength: 1
         title:
           type: string
           minLength: 1
         id:
           type: integer
+        content:
+          type: string
+          minLength: 1
       required:
       - content
       - title

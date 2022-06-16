@@ -9,7 +9,8 @@ spec = APISpec(
     version='0.1.0',
     openapi_version='3.0.2',
     info={'description': 'Demo project for OpenAPI workflow.'},
-    plugins=[FlaskPlugin(), MarshmallowPlugin()]
+    plugins=[FlaskPlugin(), MarshmallowPlugin()],
+    servers=[{'url': 'http://127.0.0.1:5000'}]
 )
 
 spec.components.schema('Post', schema=schemas.PostSchema)

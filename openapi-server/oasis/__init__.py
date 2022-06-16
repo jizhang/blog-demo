@@ -1,10 +1,14 @@
 from typing import Any
 
 from flask import Flask, Response, make_response
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object('oasis.default_settings')
+
+if app.debug:
+    CORS(app)
 
 db: Any = SQLAlchemy(app)
 
