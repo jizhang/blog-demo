@@ -16,3 +16,4 @@ spec.components.schema('Post', schema=schemas.PostSchema)
 
 with app.test_request_context():
     spec.path(view=views.get_post_list)
+    spec.path(view=views.save_post)

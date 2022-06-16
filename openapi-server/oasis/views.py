@@ -1,6 +1,7 @@
 from flask import request, jsonify, Response
+from marshmallow import ValidationError
 
-from oasis import app, db
+from oasis import app, db, AppError
 from oasis.models import Post
 from oasis.schemas import post_schema
 
@@ -54,7 +55,39 @@ def get_post_list() -> Response:
 
 @app.post('/api/post/save')
 def save_post() -> dict:
-    return {}
+    """
+    ---
+    post:
+      summary: Save post
+      tags: [post]
+      x-swagger-router-controller: oasis.views
+      operationId: save_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+    """
+    try:
+        post_form = post_schema.load(request.form)
+    except ValidationError as e:
+        raise AppError(e.messages)
+
+    post = Post(**post_form)
+    post = db.session.merge(post)
+    db.session.commit()
+    return jsonify({'id': post.id})
 
 
 @app.post('/api/post/delete')

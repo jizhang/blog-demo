@@ -38,23 +38,47 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Post'
+  /api/post/save:
+    post:
+      summary: Save post
+      tags:
+      - post
+      x-swagger-router-controller: oasis.views
+      operationId: save_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
 openapi: 3.0.2
 components:
   schemas:
     Post:
       type: object
       properties:
-        id:
-          type: integer
         updated_at:
           type: string
           format: date-time
+          readOnly: true
         content:
           type: string
           minLength: 1
         title:
           type: string
           minLength: 1
+        id:
+          type: integer
       required:
       - content
       - title
