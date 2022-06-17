@@ -5,6 +5,8 @@ info:
   description: Demo project for OpenAPI workflow.
   title: Oasis
   version: 0.1.0
+servers:
+- url: http://127.0.0.1:5000
 paths:
   /api/post/list:
     get:
@@ -38,6 +40,53 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Post'
+  /api/post/save:
+    post:
+      summary: Save post.
+      tags:
+      - post
+      x-swagger-router-controller: oasis.views
+      operationId: save_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+  /api/post/delete:
+    post:
+      summary: Delete post.
+      tags:
+      - post
+      x-swagger-router-controller: oasis.views
+      operationId: delete_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ok
 openapi: 3.0.2
 components:
   schemas:
@@ -46,15 +95,16 @@ components:
       properties:
         id:
           type: integer
-        updated_at:
-          type: string
-          format: date-time
-        content:
-          type: string
-          minLength: 1
         title:
           type: string
           minLength: 1
+        content:
+          type: string
+          minLength: 1
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
       required:
       - content
       - title
