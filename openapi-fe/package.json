@@ -6,7 +6,8 @@
     "start": "vite",
     "checktype": "vue-tsc --noEmit",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gen": "openapi-generator-cli generate"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
@@ -14,6 +15,9 @@
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.1",
+    "@types/bootstrap": "^5.1.12",
+    "@types/node": "^18.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "typescript": "^4.7.3",
     "vite": "^2.9.9",

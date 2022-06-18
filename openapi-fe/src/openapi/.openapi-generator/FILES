@@ -1,0 +1,9 @@
+.openapi-generator-ignore
+apis/PostApi.ts
+apis/index.ts
+index.ts
+models/InlineResponse200.ts
+models/InlineResponse2001.ts
+models/Post.ts
+models/index.ts
+runtime.ts

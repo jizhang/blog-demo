@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { postApi } from './api'
+
+postApi.getPostList().then((response) => {
+  console.log(response)
+})
 </script>
 
 <template>

@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "5.4.0",
+    "repository": {
+      "downloadUrl": "http://maven.aliyun.com/nexus/content/groups/public/${groupId}/${artifactId}/${versionName}/${artifactId}-${versionName}.jar"
+    },
+    "generators": {
+      "v1": {
+        "inputSpec": "../openapi-server/openapi.yaml",
+        "generatorName": "typescript-fetch",
+        "output": "src/openapi"
+      }
+    }
+  }
+}
