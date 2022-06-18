@@ -1,10 +1,24 @@
 <script setup lang="ts">
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { onMounted, ref } from 'vue'
+import dayjs from 'dayjs'
 import { postApi } from './api'
+import type { Post } from './openapi'
 
-postApi.getPostList().then((response) => {
-  console.log(response)
+const posts = ref<Post[]>([])
+
+onMounted(() => {
+  postApi.getPostList().then((response) => {
+    if (response.posts) {
+      posts.value = response.posts
+    }
+  })
 })
+
+function formatDate(date?: Date) {
+  if (!date) return '-'
+  return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
+}
 </script>
 
 <template>
@@ -26,24 +40,11 @@ postApi.getPostList().then((response) => {
     </div>
 
     <div class="d-grid gap-3 my-3">
-      <div class="card">
+      <div class="card" v-for="post in posts" :key="post.id">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content}}</p>
+          <p class="card-text"><small class="text-muted">Updated at {{formatDate(post.updatedAt)}}</small></p>
         </div>
       </div>
     </div>
