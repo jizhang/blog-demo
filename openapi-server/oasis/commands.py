@@ -1,6 +1,8 @@
 from pathlib import Path
+from datetime import datetime
 
 from oasis import app, db
+from oasis.models import Post
 from oasis.openapi import spec
 
 
@@ -9,6 +11,55 @@ def init_db():
     """Initialize database."""
     import oasis.models
     db.create_all()
+
+    posts = [
+        Post(
+            id=1,
+            title='Use Bootstrap V5 in Vue 3 Project',
+            content="""
+            Bootstrap V5 and Vue 3.x have been released for a while, but the widely used
+            BootstrapVue library is still based on Bootstrap V4 and Vue 2.x. A new version of
+            BootstrapVue is under development, and there is an alternative project BootstrapVue 3
+            in alpha version. However, since Bootstrap is mainly a CSS framework, and it has dropped
+            jQuery dependency in V5, it is not that difficult to integrate into a Vue 3.x project
+            on your own. In this article, we will go through the steps of creating such a project.
+            """,
+            updated_at=datetime(2022, 6, 11, 20, 6, 26)
+        ),
+        Post(
+            id=2,
+            title='Deploy Flink Job Cluster on Kubernetes',
+            content="""
+            Kubernetes is the trending container orchestration system that can be used to host
+            various applications from web services to data processing jobs. Applications are
+            packaged in self-contained, yet light-weight containers, and we declare how they should
+            be deployed, how they scale, and how they expose as services. Flink is also a trending
+            distributed computing framework that can run on a variety of platforms, including
+            Kubernetes. Combining them will bring us robust and scalable deployments of data
+            processing jobs, and more safely Flink can share a Kubernetes cluster with other
+            services.
+            """,
+            updated_at=datetime(2019, 8, 24, 19, 33, 22)
+        ),
+        Post(
+            id=3,
+            title='Understanding Hive ACID Transactional Table',
+            content="""
+            Apache Hive introduced transactions since version 0.13 to fully support ACID semantics
+            on Hive table, including INSERT/UPDATE/DELETE/MERGE statements, streaming data
+            ingestion, etc. In Hive 3.0, this feature is further improved by optimizing the
+            underlying data file structure, reducing constraints on table scheme, and supporting
+            predicate push down and vectorized query. Examples and setup can be found on Hive wiki
+            and other tutorials, while this article will focus on how transactional table is saved
+            on HDFS, and take a closer look at the read-write process.
+            """,
+            updated_at=datetime(2019, 6, 10, 20, 40, 55)
+        ),
+    ]
+
+    for post in posts:
+        db.session.merge(post)
+    db.session.commit()
 
 
 @app.cli.command()
