@@ -45,7 +45,9 @@ def get_post_list() -> Response:
     sort = request.args.get('sort', 'desc')
 
     query = db.session.query(Post)
-    if sort == 'desc':
+    if sort == 'asc':
+        query = query.order_by(Post.updated_at.asc())
+    else:
         query = query.order_by(Post.updated_at.desc())
 
     query = query.offset((page - 1) * PAGE_SIZE).limit(PAGE_SIZE)
