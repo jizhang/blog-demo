@@ -1,2 +1,2 @@
-FLASK_APP=nasa:app
+FLASK_APP=nasa
 FLASK_ENV=development

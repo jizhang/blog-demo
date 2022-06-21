@@ -6,7 +6,6 @@ setup(
     install_requires=[
         'Flask>=2',
         'SQLAlchemy>=1.4,<2',
-        'PyMySQL',
         'python-dotenv',
     ]
 )
