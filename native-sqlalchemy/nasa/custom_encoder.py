@@ -1,7 +1,7 @@
-from json import JSONEncoder
 from decimal import Decimal
 from datetime import datetime
 
+from flask.json import JSONEncoder
 from sqlalchemy.engine.row import Row
 from sqlalchemy.orm.decl_api import DeclarativeMeta
 

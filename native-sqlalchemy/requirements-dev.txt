@@ -1,0 +1,2 @@
+mypy==0.961
+sqlalchemy2-stubs==0.0.2a24
