@@ -42,7 +42,7 @@ class SQLAlchemyMulti:
         for session in holder.sessions.values():
             session.remove()
 
-    def session(self, name: str = 'default') -> Session:
+    def get_session(self, name: str = 'default') -> Session:
         holder: Holder = current_app.extensions['sqlalchemy_multi']
         with holder.lock:
             if name not in holder.sessions:
