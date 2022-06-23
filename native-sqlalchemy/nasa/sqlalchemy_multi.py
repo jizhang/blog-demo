@@ -30,6 +30,7 @@ class SQLAlchemyMulti:
             url = current_app.config['SQLALCHEMY_DATABASE_URI']
         else:
             url = current_app.config['SQLALCHEMY_BINDS'][name]
+
         echo = current_app.config.get('SQLALCHEMY_ECHO', False)
 
         engine = create_engine(url, echo=echo)
