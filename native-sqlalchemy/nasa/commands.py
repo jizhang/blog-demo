@@ -34,6 +34,6 @@ def product_db() -> None:
 
 @app.cli.command()
 def use_alpha() -> None:
-    "Test alpha extension."
+    """Test alpha extension."""
     user_count = db_alpha.engine.execute('SELECT COUNT(*) FROM `user`').scalar_one()
     app.logger.info(f'User count: {user_count}')
