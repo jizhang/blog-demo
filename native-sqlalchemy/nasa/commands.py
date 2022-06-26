@@ -1,4 +1,4 @@
-from nasa import app, db, db_multi
+from nasa import app, db, db_multi, db_alpha
 from nasa.models import Base, User
 
 from sqlalchemy import text
@@ -30,3 +30,10 @@ def product_db() -> None:
         }
     ).scalar()
     app.logger.info(f'Database file: {db_file}')
+
+
+@app.cli.command()
+def use_alpha() -> None:
+    "Test alpha extension."
+    user_count = db_alpha.engine.execute('SELECT COUNT(*) FROM `user`').scalar_one()
+    app.logger.info(f'User count: {user_count}')
