@@ -11,6 +11,8 @@ venv
 # JavaScript
 node_modules
 dist
+.parcel-cache
+yarn-error.log
 
 # IDE
 .vscode
