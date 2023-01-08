@@ -9,7 +9,6 @@ module.exports = function (app) {
     })
     app.use(proxy)
   } else {
-    app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
     app.use(createMockMiddleware('./mock'))
   }
