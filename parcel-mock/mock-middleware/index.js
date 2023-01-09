@@ -1,3 +1,4 @@
+const url = require('url')
 const path = require('path')
 const chokidar = require('chokidar')
 const glob = require('glob')
@@ -43,7 +44,8 @@ class MockMiddleware {
   }
 
   middleware = (req, res, next) => {
-    const m = this.router.match(req.method + ' ' + req.url)
+    const { pathname } = url.parse(req.url)
+    const m = this.router.match(req.method + ' ' + pathname)
     if (m) {
       m.fn(req, res, m.params)
     } else {
