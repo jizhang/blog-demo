@@ -4,6 +4,7 @@
 * [OpenAPI Workflow with Flask and TypeScript](https://shzhangji.com/blog/2022/06/19/openapi-workflow-with-flask-and-typescript/)
 * [Write Your Own Flask SQLAlchemy Extension](https://shzhangji.com/blog/2022/06/26/write-your-own-flask-sqlalchemy-extension/)
 * [Mock API in Parcel Project](https://shzhangji.com/blog/2023/01/09/mock-api-in-parcel-project/)
+* [Pandas and Tidy Data](https://shzhangji.com/blog/2017/09/30/pandas-and-tidy-data/), [中文](https://shzhangji.com/cnblogs/2017/09/30/pandas-and-tidy-data/)
 * [Apache Beam Quick Start with Python](https://shzhangji.com/blog/2017/09/12/apache-beam-quick-start-with-python/), [中文](https://shzhangji.com/cnblogs/2017/09/13/apache-beam-quick-start-with-python/)
 * [Clojure 实战(5)：Storm 实时计算框架](https://shzhangji.com/cnblogs/2013/04/22/cia-storm/)
 * [Clojure 实战(4)：编写 Hadoop MapReduce 脚本](https://shzhangji.com/cnblogs/2013/02/09/cia-hadoop/)

@@ -1,0 +1,61 @@
+religion,income,frequency
+Agnostic,<$10k,27
+Agnostic,$30-40k,81
+Agnostic,$40-50k,76
+Agnostic,$50-75k,137
+Agnostic,$10-20k,34
+Agnostic,$20-30k,60
+Atheist,$40-50k,35
+Atheist,$20-30k,37
+Atheist,$10-20k,27
+Atheist,$30-40k,52
+Atheist,<$10k,12
+Atheist,$50-75k,70
+Buddhist,$40-50k,33
+Buddhist,<$10k,27
+Buddhist,$10-20k,21
+Buddhist,$30-40k,34
+Buddhist,$50-75k,58
+Buddhist,$20-30k,30
+Catholic,$40-50k,638
+Catholic,$30-40k,670
+Catholic,$20-30k,732
+Catholic,$50-75k,1116
+Catholic,$10-20k,617
+Catholic,<$10k,418
+Don’t know/refused,$20-30k,15
+Don’t know/refused,$40-50k,10
+Don’t know/refused,<$10k,15
+Don’t know/refused,$50-75k,35
+Don’t know/refused,$10-20k,14
+Don’t know/refused,$30-40k,11
+Evangelical Prot,$20-30k,1064
+Evangelical Prot,$50-75k,1486
+Evangelical Prot,$10-20k,869
+Evangelical Prot,<$10k,575
+Evangelical Prot,$40-50k,881
+Evangelical Prot,$30-40k,982
+Hindu,$50-75k,34
+Hindu,$20-30k,7
+Hindu,$40-50k,11
+Hindu,$10-20k,9
+Hindu,$30-40k,9
+Hindu,<$10k,1
+Historically Black Prot,$40-50k,197
+Historically Black Prot,$30-40k,238
+Historically Black Prot,$50-75k,223
+Historically Black Prot,$20-30k,236
+Historically Black Prot,$10-20k,244
+Historically Black Prot,<$10k,228
+Jehovah's Witness,<$10k,20
+Jehovah's Witness,$30-40k,24
+Jehovah's Witness,$50-75k,30
+Jehovah's Witness,$40-50k,21
+Jehovah's Witness,$20-30k,24
+Jehovah's Witness,$10-20k,27
+Jewish,$20-30k,25
+Jewish,$30-40k,25
+Jewish,$10-20k,19
+Jewish,<$10k,19
+Jewish,$40-50k,30
+Jewish,$50-75k,95
