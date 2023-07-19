@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+.py[cod]
+venv/
+
+# Editor
+.vscode/
+
+# TensorFlow
+/export/
