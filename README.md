@@ -13,6 +13,7 @@
 * [Connect HBase with Python and Thrift](https://shzhangji.com/blog/2018/04/22/connect-hbase-with-python-and-thrift/), [中文](https://shzhangji.com/cnblogs/2018/04/22/connect-hbase-with-python-and-thrift/)
 * [Serve TensforFlow Estimator with SavedModel](https://shzhangji.com/blog/2018/05/14/serve-tensorflow-estimator-with-savedmodel/), [中文](https://shzhangji.com/cnblogs/2018/05/14/serve-tensorflow-estimator-with-savedmodel/)
 * [Is It Necessary to Apply ESLint jsx-no-bind Rule?](https://shzhangji.com/blog/2018/09/13/is-it-necessary-to-apply-eslint-jsx-no-bind-rule/), [中文](https://shzhangji.com/cnblogs/2018/09/14/is-it-necessary-to-apply-eslint-jsx-no-bind-rule/)
+* [How to Avoid NullPointerException](https://shzhangji.com/blog/2018/09/20/how-to-avoid-null-pointer-exception/), [中文](https://shzhangji.com/cnblogs/2018/09/22/how-to-avoid-null-pointer-exception/)
 * [Deploy Flink Job Cluster on Kubernetes](https://shzhangji.com/blog/2019/08/24/deploy-flink-job-cluster-on-kubernetes/), [中文](https://shzhangji.com/cnblogs/2019/08/25/deploy-flink-job-cluster-on-kubernetes/)
 * [Use Bootstrap V5 in Vue 3 Project](https://shzhangji.com/blog/2022/06/11/use-bootstrap-v5-in-vue3-project/)
 * [OpenAPI Workflow with Flask and TypeScript](https://shzhangji.com/blog/2022/06/19/openapi-workflow-with-flask-and-typescript/)
