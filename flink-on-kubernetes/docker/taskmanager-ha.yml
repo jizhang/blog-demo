@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${JOB}-taskmanager
+spec:
+  selector:
+    matchLabels:
+      app: flink
+      instance: ${JOB}-taskmanager
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flink
+        instance: ${JOB}-taskmanager
+    spec:
+      containers:
+      - name: taskmanager
+        image: flink-on-kubernetes:0.0.1
+        command: ["/opt/flink/bin/taskmanager.sh"]
+        args: ["start-foreground",
+               "-Dhigh-availability=zookeeper",
+               "-Dhigh-availability.zookeeper.quorum=192.168.99.1:2181",
+               "-Dhigh-availability.zookeeper.path.root=/flink",
+               "-Dhigh-availability.cluster-id=/${JOB}",
+               "-Dhigh-availability.storageDir=hdfs://192.168.99.1:9000/flink/recovery",
+               ]

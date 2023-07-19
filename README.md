@@ -9,6 +9,7 @@
 * [Form Handling in Vuex Strict Mode](https://shzhangji.com/blog/2018/04/17/form-handling-in-vuex-strict-mode/), [中文](https://shzhangji.com/cnblogs/2018/04/18/form-handling-in-vuex-strict-mode/)
 * [Connect HBase with Python and Thrift](https://shzhangji.com/blog/2018/04/22/connect-hbase-with-python-and-thrift/), [中文](https://shzhangji.com/cnblogs/2018/04/22/connect-hbase-with-python-and-thrift/)
 * [Is It Necessary to Apply ESLint jsx-no-bind Rule?](https://shzhangji.com/blog/2018/09/13/is-it-necessary-to-apply-eslint-jsx-no-bind-rule/), [中文](https://shzhangji.com/cnblogs/2018/09/14/is-it-necessary-to-apply-eslint-jsx-no-bind-rule/)
+* [Deploy Flink Job Cluster on Kubernetes](https://shzhangji.com/blog/2019/08/24/deploy-flink-job-cluster-on-kubernetes/), [中文](https://shzhangji.com/cnblogs/2019/08/25/deploy-flink-job-cluster-on-kubernetes/)
 * [Use Bootstrap V5 in Vue 3 Project](https://shzhangji.com/blog/2022/06/11/use-bootstrap-v5-in-vue3-project/)
 * [OpenAPI Workflow with Flask and TypeScript](https://shzhangji.com/blog/2022/06/19/openapi-workflow-with-flask-and-typescript/)
 * [Write Your Own Flask SQLAlchemy Extension](https://shzhangji.com/blog/2022/06/26/write-your-own-flask-sqlalchemy-extension/)

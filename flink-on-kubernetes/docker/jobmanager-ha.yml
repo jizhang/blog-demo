@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ${JOB}-jobmanager
+spec:
+  template:
+    metadata:
+      labels:
+        app: flink
+        instance: ${JOB}-jobmanager
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: jobmanager
+        image: flink-on-kubernetes:0.0.1
+        command: ["/opt/flink/bin/standalone-job.sh"]
+        args: ["start-foreground",
+               "-Djobmanager.rpc.address=${JOB}-jobmanager",
+               "-Dparallelism.default=1",
+               "-Dblob.server.port=6124",
+               "-Dqueryable-state.server.ports=6125",
+               "-Dhigh-availability=zookeeper",
+               "-Dhigh-availability.zookeeper.quorum=192.168.99.1:2181",
+               "-Dhigh-availability.zookeeper.path.root=/flink",
+               "-Dhigh-availability.cluster-id=/${JOB}",
+               "-Dhigh-availability.storageDir=hdfs://192.168.99.1:9000/flink/recovery",
+               "-Dhigh-availability.jobmanager.port=6123",
+               ]
+        ports:
+        - containerPort: 6123
+          name: rpc
+        - containerPort: 6124
+          name: blob
+        - containerPort: 6125
+          name: query
+        - containerPort: 8081
+          name: ui
