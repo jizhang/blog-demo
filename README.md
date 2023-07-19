@@ -5,3 +5,4 @@
 * [Write Your Own Flask SQLAlchemy Extension](https://shzhangji.com/blog/2022/06/26/write-your-own-flask-sqlalchemy-extension/)
 * [Mock API in Parcel Project](https://shzhangji.com/blog/2023/01/09/mock-api-in-parcel-project/)
 * [Clojure 实战(5)：Storm 实时计算框架](https://shzhangji.com/cnblogs/2013/04/22/cia-storm/)
+* [Clojure 实战(4)：编写 Hadoop MapReduce 脚本](https://shzhangji.com/cnblogs/2013/02/09/cia-hadoop/)
