@@ -4,3 +4,4 @@
 * [OpenAPI Workflow with Flask and TypeScript](https://shzhangji.com/blog/2022/06/19/openapi-workflow-with-flask-and-typescript/)
 * [Write Your Own Flask SQLAlchemy Extension](https://shzhangji.com/blog/2022/06/26/write-your-own-flask-sqlalchemy-extension/)
 * [Mock API in Parcel Project](https://shzhangji.com/blog/2023/01/09/mock-api-in-parcel-project/)
+* [Clojure 实战(5)：Storm 实时计算框架](https://shzhangji.com/cnblogs/2013/04/22/cia-storm/)
