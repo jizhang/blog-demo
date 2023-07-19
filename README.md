@@ -3,6 +3,7 @@
 * [Clojure 实战(4)：编写 Hadoop MapReduce 脚本](https://shzhangji.com/cnblogs/2013/02/09/cia-hadoop/)
 * [Clojure 实战(5)：Storm 实时计算框架](https://shzhangji.com/cnblogs/2013/04/22/cia-storm/)
 * [Perl 入门实战：JVM 监控脚本（上）](https://shzhangji.com/cnblogs/2013/03/26/perl-prime-in-action-jvm-monitoring-1/)
+* [Log Tailer with WebSocket and Python](https://shzhangji.com/blog/2017/07/15/log-tailer-with-websocket-and-python/), [中文](https://shzhangji.com/cnblogs/2017/07/16/log-tailer-with-websocket-and-python/)
 * [Apache Beam Quick Start with Python](https://shzhangji.com/blog/2017/09/12/apache-beam-quick-start-with-python/), [中文](https://shzhangji.com/cnblogs/2017/09/13/apache-beam-quick-start-with-python/)
 * [Pandas and Tidy Data](https://shzhangji.com/blog/2017/09/30/pandas-and-tidy-data/), [中文](https://shzhangji.com/cnblogs/2017/09/30/pandas-and-tidy-data/)
 * [Error Handling in RESTful API](https://shzhangji.com/blog/2018/04/07/error-handling-in-restful-api/), [中文](https://shzhangji.com/cnblogs/2018/04/07/error-handling-in-restful-api/)

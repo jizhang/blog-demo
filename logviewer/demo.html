@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Logviewer Demo</title>
+  </head>
+  <body>
+    <pre id="logs"></pre>
+    <script>
+      let ws = new WebSocket('ws://localhost:8765/tmp/demo.log?tail=1')
+      ws.onmessage = (event) => {
+        if (event.data === 'ping') {
+          ws.send('pong')
+          return
+        }
+        document.getElementById('logs').innerHTML += event.data
+      }
+    </script>
+  </body>
+</html>

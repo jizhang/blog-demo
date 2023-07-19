@@ -1,0 +1,2 @@
+websockets==10.2
+ansi2html==1.7.0
