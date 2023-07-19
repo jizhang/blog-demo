@@ -15,6 +15,7 @@
 * [Use Bootstrap V5 in Vue 3 Project](https://shzhangji.com/blog/2022/06/11/use-bootstrap-v5-in-vue3-project/)
 * [OpenAPI Workflow with Flask and TypeScript](https://shzhangji.com/blog/2022/06/19/openapi-workflow-with-flask-and-typescript/)
 * [Write Your Own Flask SQLAlchemy Extension](https://shzhangji.com/blog/2022/06/26/write-your-own-flask-sqlalchemy-extension/)
+* [Store Custom Data in Spring MVC Request Context](https://shzhangji.com/blog/2022/07/05/store-custom-data-in-spring-mvc-request-context/)
 * [Manage Multiple CommandLineRunner in Spring Boot](https://shzhangji.com/blog/2022/07/16/manage-multiple-command-line-runner-in-spring-boot/)
 * [Mock API in Parcel Project](https://shzhangji.com/blog/2023/01/09/mock-api-in-parcel-project/)
 * [RESTful API Authentication with Spring Security](https://shzhangji.com/blog/2023/01/15/restful-api-authentication-with-spring-security/)
