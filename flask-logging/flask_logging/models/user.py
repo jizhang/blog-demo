@@ -1,4 +1,4 @@
-from modern import db
+from flask_logging import db
 
 
 class User(db.Model):

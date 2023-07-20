@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "flask-logging"
+version = "0.1.0"
+description = ""
+authors = ["Jerry <zhangji87@gmail.com>"]
+readme = "README.md"
+packages = [{include = "flask_logging"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.3.2"
+flask-sqlalchemy = "^3.0.5"
+python-dotenv = "^1.0.0"
+pymysql = "^1.1.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.0.278"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

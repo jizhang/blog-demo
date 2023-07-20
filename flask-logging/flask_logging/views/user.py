@@ -2,7 +2,7 @@ import logging
 
 from flask import current_app, jsonify, Response
 
-from modern.services import user as user_svc
+from flask_logging.services import user as user_svc
 
 logger = logging.getLogger(__name__)
 

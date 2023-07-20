@@ -2,8 +2,8 @@ import logging
 
 from flask import current_app
 
-from modern import db
-from modern.models.user import User
+from flask_logging import db
+from flask_logging.models.user import User
 
 logger = logging.getLogger(__name__)
 
