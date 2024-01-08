@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "api-pydantic"
+version = "0.1.0"
+description = ""
+authors = ["Jerry <zhangji87@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "apipydantic" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.11"
+mypy = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "default"
