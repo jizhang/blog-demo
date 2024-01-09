@@ -5,7 +5,7 @@ description = ""
 authors = ["Jerry <zhangji87@gmail.com>"]
 readme = "README.md"
 packages = [
-    { include = "apipydantic" },
+  { include = "apipydantic" }
 ]
 
 [tool.poetry.dependencies]
