@@ -1,13 +1,14 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Annotated
+from typing import Annotated, Optional, Any
+from enum import Enum, IntEnum
 
 from flask import abort, request
 from pydantic import (
     BaseModel,
     ConfigDict,
     Field,
-    PlainSerializer,
+    PlainSerializer, field_validator, validate_call,
     computed_field,
 )
 
@@ -29,10 +30,17 @@ class User(BaseModel):
     username: str
     last_login: CustomDatetime
 
+    context: dict[str, Any] = Field(exclude=True, default={})
+
     @computed_field  # type: ignore[misc]
     @property
     def last_login_timestamp(self) -> float:
         return self.last_login.timestamp()
+
+    @computed_field  # type: ignore[misc]
+    @property
+    def from_context(self) -> str:
+        return self.context.get('test', 'N/A')
 
     # @field_serializer('last_login')
     # def serialize_last_login(self, value: datetime):
@@ -64,6 +72,7 @@ def current_user() -> dict:
     # user = User(id=1, username='jizhang', last_login=datetime.now())
     user = User.model_validate({'id': 1, 'username': 'jizhang', 'last_login': datetime.now()})
     # user = User.model_validate(UserDTO(1, 'jizhang', datetime.now()))
+    user.context['test'] = 'abc'
     return user.model_dump(mode='json', by_alias=True)
 
 
@@ -81,3 +90,56 @@ def user_list() -> dict:
     users = user_svc.get_list()
     response = UserListResponse(users=users, total_count=len(users))
     return response.model_dump(mode='json')
+
+
+class LoginForm(BaseModel):
+    username: str
+    password: str
+    remember_me: bool = True
+
+
+@app.post('/login')
+def login() -> dict:
+    form = LoginForm.model_validate(request.get_json())
+    return form.model_dump(mode='json')
+
+
+class FilterForm(BaseModel):
+    tags: list[str] = []
+    keyword: Optional[str] = None
+
+    @field_validator('tags', mode='before')
+    @classmethod
+    def validate_tags(cls, value: str) -> list[str]:
+        print(value)
+        return [tag.strip() for tag in value.split(',') if tag.strip()]
+
+
+@app.get('/filter')
+def filter_by() -> dict:
+    form = FilterForm.model_validate(request.args.to_dict())
+    return form.model_dump(mode='json')
+
+
+PositiveInt = Annotated[int, Field(gt=0)]
+
+@app.get('/user/<int:user_id>')
+@validate_call
+def get_user_by_id(user_id: PositiveInt) -> dict:
+    return {'id': user_id}
+
+
+class Color(IntEnum):
+    RED = 4
+    GREEN = 5
+    BLUE = 6
+
+
+class ColorForm(BaseModel):
+    color: Color
+
+
+@app.post('/color')
+def get_color() -> dict:
+    form = ColorForm.model_validate(request.get_json())
+    return form.model_dump(mode='json')
