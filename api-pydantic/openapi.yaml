@@ -1,0 +1,19 @@
+openapi: 3.0.2
+info:
+  title: Pydantic Demo
+  version: 0.1.0
+paths:
+  /create-user:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas.json#/$defs/UserForm'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas.json#/$defs/CreateUserResponse'

@@ -1,7 +1,7 @@
 default: web
 
 web:
-	poetry run flask --app apipydantic run --debug
+	poetry run flask run --debug
 
 test:
 	poetry run ruff --fix apipydantic

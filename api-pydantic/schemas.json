@@ -1,0 +1,37 @@
+{
+  "$defs": {
+    "CreateUserResponse": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "CreateUserResponse",
+      "type": "object"
+    },
+    "UserForm": {
+      "properties": {
+        "username": {
+          "maxLength": 10,
+          "minLength": 3,
+          "title": "Username",
+          "type": "string"
+        },
+        "password": {
+          "title": "Password",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ],
+      "title": "UserForm",
+      "type": "object"
+    }
+  }
+}
