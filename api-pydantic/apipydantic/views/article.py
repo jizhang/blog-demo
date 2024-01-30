@@ -1,7 +1,6 @@
 from datetime import datetime
 from decimal import Decimal
 from enum import Enum, IntEnum
-from pprint import pprint
 from typing import Annotated, Optional
 from uuid import uuid4
 
@@ -46,7 +45,7 @@ def article_list() -> dict:
 
 @app.get('/article/<int:id>')
 def article(id: int) -> dict:
-    article = Article(id=1, title='Python Static Type Check', category_id=2)
+    article = Article(id=id, title='Python Static Type Check', category_id=2)
     return article.model_dump(mode='json')
 
 
@@ -56,13 +55,16 @@ def parse_tags(tags: str) -> list[str]:
 
 TagList = Annotated[list[str], BeforeValidator(parse_tags)]
 
+
 class OrderBy(str, Enum):
     ASC = 'asc'
     DESC = 'desc'
 
+
 class Category(IntEnum):
     BIG_DATA = 1
     PROGRAMMING = 2
+
 
 class SearchForm(BaseModel):
     keyword: Optional[str] = Field(default=None)
@@ -89,7 +91,6 @@ class SearchForm(BaseModel):
 
 @app.get('/article/search')
 def article_search() -> dict:
-    pprint(request.args)
     form = SearchForm.model_validate(request.args.to_dict())
     print(form.order_by == OrderBy.ASC)
     print(form.category == Category.PROGRAMMING)
@@ -107,14 +108,6 @@ class ConversionForm(BaseModel):
 
 @app.get('/article/demo')
 def article_demo() -> dict:
-    # form = ConversionForm(
-    #     int_value='10',
-    #     decimal_value='10.24',
-    #     bool_value='true',
-    #     datetime_value='2024-01-27 17:02:00',
-    #     array_value=(1, '2'),
-    #     object_value={'key': False},
-    # )
     form = ConversionForm.model_validate({
         'int_value': '10',
         'decimal_value': '10.24',

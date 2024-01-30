@@ -1,8 +1,6 @@
-import json
 from datetime import datetime
 from enum import IntEnum
-from pprint import pprint
-from typing import Annotated, Any
+from typing import Annotated
 
 from flask import abort, request
 from pydantic import (
@@ -15,7 +13,6 @@ from pydantic import (
     validate_call,
 )
 from pydantic.alias_generators import to_camel
-from pydantic.json_schema import models_json_schema
 
 from apipydantic import app, db
 from apipydantic.models.user import User as UserOrm
@@ -32,21 +29,14 @@ CustomDatetime = Annotated[datetime, PlainSerializer(format_datetime)]
 class User(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int # = Field(serialization_alias='user_id')
+    id: int
     username: str
     last_login: datetime
-
-    context: dict[str, Any] = Field(exclude=True, default={})
 
     @computed_field  # type: ignore[misc]
     @property
     def last_login_timestamp(self) -> float:
         return self.last_login.timestamp()
-
-    @computed_field  # type: ignore[misc]
-    @property
-    def from_context(self) -> str:
-        return self.context.get('test', 'N/A')
 
     # @field_serializer('last_login')
     # def serialize_last_login(self, value: datetime):
@@ -61,16 +51,6 @@ class User(BaseModel):
     #     }
 
 
-class UserListResponse(BaseModel):
-    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
-
-    user_list: list[User]
-    # total_count: int = Field(ge=0)
-
-    # @model_serializer
-    # def serialize_model(self) -> list:
-    #     return self.users
-
 class UserDto:
     def __init__(self, id: int, username: str, last_login: datetime):
         self.id = id
@@ -80,14 +60,10 @@ class UserDto:
 
 @app.get('/current-user')
 def current_user() -> dict:
-    pprint(UserListResponse.model_json_schema())
-
     # user = User(id=1, username='jizhang', last_login=datetime.now())
     # user = User.model_validate({'id': 1, 'username': 'jizhang', 'last_login': datetime.now()})
     # user = User.model_validate(UserDto(1, 'jizhang', datetime.now()))
     user = User.model_validate(UserDto(1, 'jizhang', datetime.now()), from_attributes=True)
-    user.context['test'] = 'abc'
-    user.model_dump_json()
     return user.model_dump(mode='json', by_alias=True)
 
 
@@ -100,18 +76,29 @@ def get_user() -> dict:
     return response.model_dump(mode='json')
 
 
+class UserListResponse(BaseModel):
+    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
+
+    user_list: list[User]
+
+    # @model_serializer
+    # def serialize_model(self) -> list:
+    #     return self.users
+
+
 @app.get('/user-list')
 def user_list() -> dict:
     user_orms = user_svc.get_list()
-    # response = UserListResponse(users=user_orms, total_count=len(user_orms))
     response = UserListResponse.model_validate({'user_list': user_orms})
     return response.model_dump(mode='json', by_alias=True)
+
+
+UserList = TypeAdapter(list[User])
 
 
 @app.get('/user-list-raw')
 def user_list_raw() -> list:
     user_orms = user_svc.get_list()
-    UserList = TypeAdapter(list[User])  # noqa: N806
     user_list = UserList.validate_python(user_orms)
     return UserList.dump_python(user_list, mode='json')
 
@@ -129,6 +116,7 @@ def login() -> dict:
 
 
 PositiveInt = Annotated[int, Field(gt=0)]
+
 
 @app.get('/user/<int:user_id>')
 @validate_call
@@ -184,13 +172,6 @@ class CreateUserResponse(BaseModel):
 
 @app.post('/create-user')
 def create_user() -> dict:
-    _, schema = models_json_schema([
-        (UserForm, 'validation'),
-        (CreateUserResponse, 'serialization'),
-    ])
-    print(json.dumps(schema, indent=2))
-
-    pprint(request.get_json())
     form = UserForm.model_validate(request.get_json())
     user_orm = UserOrm(**dict(form), last_login=datetime.now())
     db.session.add(user_orm)

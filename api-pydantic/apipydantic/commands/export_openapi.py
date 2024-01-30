@@ -6,7 +6,7 @@ from apipydantic.views.user import CreateUserResponse, UserForm
 
 
 @app.cli.command()
-def export_openapi():
+def export_openapi() -> None:
     api = OpenAPI.model_validate({
         'info': {'title': 'Pydantic Demo', 'version': '0.1.0'},
         'paths': {

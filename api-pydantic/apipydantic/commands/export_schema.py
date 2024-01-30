@@ -7,7 +7,7 @@ from apipydantic.views.user import CreateUserResponse, UserForm
 
 
 @app.cli.command()
-def export_schema():
+def export_schema() -> None:
     _, schema = models_json_schema([
         (UserForm, 'validation'),
         (CreateUserResponse, 'serialization'),

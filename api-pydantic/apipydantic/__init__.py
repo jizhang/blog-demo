@@ -1,4 +1,3 @@
-import werkzeug.exceptions
 from flask import Flask, Response, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from pydantic import ValidationError
