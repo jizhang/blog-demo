@@ -24,3 +24,4 @@
 * [RESTful API Authentication with Spring Security](https://shzhangji.com/blog/2023/01/15/restful-api-authentication-with-spring-security/)
 * [Migrate from Pip requirements.txt to Poetry](https://shzhangji.com/blog/2024/01/05/migrate-from-pip-requirements-txt-to-poetry/)
 * [Python Static Type Check](https://shzhangji.com/blog/2024/01/19/python-static-type-check/)
+* [Define API Data Models with Pydantic](https://shzhangji.com/blog/2024/01/28/define-api-data-models-with-pydantic/)
