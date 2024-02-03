@@ -8,6 +8,12 @@ public class AppInjector {
     static final Injector INJECTOR = Guice.createInjector(new DatabaseModule());
   }
 
+  private AppInjector() {}
+
+  public static void injectMembers(Object instance) {
+    Holder.INJECTOR.injectMembers(instance);
+  }
+
   public static Injector getInjector() {
     return Holder.INJECTOR;
   }

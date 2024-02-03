@@ -17,4 +17,10 @@ public class DatabaseModule extends AbstractModule {
     config.setPassword("");
     return new HikariDataSource(config);
   }
+
+  @Provides
+  @Singleton
+  public UserRepository provideUserRepository(DataSource dataSource) {
+    return new UserRepositoryImpl(dataSource);
+  }
 }
