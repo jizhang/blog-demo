@@ -1,0 +1,8 @@
+# Java
+target
+
+# IDE
+.idea
+
+# Mac
+.DS_Store
