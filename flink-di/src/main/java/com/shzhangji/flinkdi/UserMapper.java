@@ -1,13 +1,13 @@
 package com.shzhangji.flinkdi;
 
-import com.google.inject.Inject;
+import jakarta.inject.Inject;
 import java.util.Objects;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.configuration.Configuration;
 
 public class UserMapper extends RichMapFunction<Long, User> {
   @Inject
-  transient UserRepository userRepository;
+  UserRepository userRepository;
 
   @Override
   public void open(Configuration parameters) throws Exception {

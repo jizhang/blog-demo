@@ -1,6 +1,6 @@
 package com.shzhangji.flinkdi;
 
-import com.google.inject.Inject;
+import jakarta.inject.Inject;
 import java.sql.SQLException;
 import java.util.Optional;
 import javax.sql.DataSource;
