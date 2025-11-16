@@ -2,5 +2,5 @@
 
 Source code for my blog post: [English][1], [中文][2]
 
-[1]: https://jizhang.github.io/blog/2017/09/30/pandas-and-tidy-data/
-[2]: https://blog.csdn.net/zjerryj/article/details/78189487
+[1]: https://jerrydata.dev/2017/09/30/pandas-and-tidy-data/
+[2]: https://jerrydata.dev/zh/2017/09/30/pandas-and-tidy-data/
